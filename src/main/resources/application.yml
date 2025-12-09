@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: snmp-device-discovery
+
+# SNMP 설정
+snmp:
+  community: public  # 기본 커뮤니티 스트링
+  timeout: 2000      # 타임아웃 (밀리초)
+  retries: 1         # 재시도 횟수
+
+# 장비 조회 설정
+discovery:
+  port-check-enabled: true    # 포트 체크 활성화 (빠른 필터링)
+  snmp-check-enabled: true    # SNMP 설정 확인 활성화 (더 정확한 필터링)
+  max-threads: 50             # 병렬 처리 스레드 수
+
+logging:
+  level:
+    com.example.snmp: INFO
+    org.snmp4j: WARN
